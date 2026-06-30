@@ -9,6 +9,13 @@ resource_rules:
     preserve_user_credit_reserve: 1000
     default_mode: low_cost_high_efficiency
 current_lane_status:
+  lane_0_lineage_merge:
+    status: in_progress
+    objective: determine canonical Jacky source and merge validated backup assets into it
+    immediate_tasks:
+      - confirm active canonical Jacky repository versus archived siblings
+      - map original runtime capabilities against current prompt/reference assets
+      - block direct launch from backup repository
   lane_1_legal_ownership:
     status: in_progress
     objective: determine what can be shipped, renamed, sold, or kept reference-only
@@ -38,6 +45,9 @@ current_lane_status:
       - ownership and branding review not complete
       - no billing, auth, support, or incident tooling in place
 priority_order:
+  - priority: 0
+    action: lineage and canonical-source confirmation
+    why: no merge or launch should proceed until original-vs-backup roles are fixed
   - priority: 1
     action: legal and commercialization review
     why: do not build a public product surface around unreviewed assets
@@ -61,6 +71,16 @@ priority_order:
     why: collect feedback before public or paid launch
 phase_backlog:
   phase_0_stop_go:
+    next:
+      - confirm Jacky-Console- as canonical active repo and ocd-jacky-777 as historical sibling
+      - complete source-lineage merge audit
+      - block direct productization of the backup prompt repo
+  phase_1_merge_foundation:
+    next:
+      - pull canonical Jacky repo into working environment
+      - map current prompt assets and planning artifacts into import candidates
+      - define keep_merge_adapt_retire decisions per asset family
+  phase_0_stop_go_legacy:
     done:
       - current repository assessed as source material, not an app
       - concrete MVP direction chosen: private-first prompt management app

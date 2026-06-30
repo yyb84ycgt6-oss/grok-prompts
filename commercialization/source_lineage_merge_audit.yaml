@@ -1,0 +1,142 @@
+audit_version: 1
+audit_scope: original_vs_backup_product_line
+objective:
+  - treat 93jessycollin93-del Jacky lineage as primary/original
+  - treat /home/runner/work/grok-prompts/grok-prompts as backup_parallel_reference_material
+  - merge only assets that are coherent, testable, secure, and useful
+sources:
+  original_lineage:
+    status: provisional_primary
+    repositories:
+      - repo: 93jessycollin93-del/Jacky-Console-
+        branch: main
+        state: active_public
+        evidence:
+          - root tree contains src, public, supabase, Jackie, vitest, playwright, eslint
+          - README identifies a Lovable Vite TypeScript React shadcn Tailwind application
+      - repo: 93jessycollin93-del/ocd-jacky-777
+        branch: main
+        state: archived_public
+        evidence:
+          - visible root tree and README match Jacky-Console-
+          - appears to be historical lineage or archived sibling
+    stack:
+      - Vite
+      - TypeScript
+      - React
+      - shadcn-ui
+      - Tailwind CSS
+      - Supabase
+      - Vitest
+      - Playwright
+    visible_capabilities:
+      - interactive application runtime
+      - UI shell and page/component structure
+      - test harness presence
+      - Supabase integration surface
+      - internal Jackie docs for architecture, behavior, memory, roadmap, and security
+  current_backup_lineage:
+    status: active_backup_parallel
+    repository:
+      path: /home/runner/work/grok-prompts/grok-prompts
+      state: local_clone
+    stack:
+      - flat prompt asset repository
+      - Jinja2 prompt files
+      - text safety/system prompt assets
+      - YAML commercialization planning artifacts
+    visible_capabilities:
+      - prompt reference corpus
+      - prompt-family canonicalization inputs
+      - commercialization planning
+      - architecture and launch planning
+identity_audit:
+  original:
+    classification: canonical_application_lineage
+    evidence:
+      - has executable frontend application structure
+      - has testing configuration
+      - has domain-specific Jackie knowledge and policy documentation
+  current:
+    classification: backup_parallel_reference_lineage
+    evidence:
+      - no app runtime
+      - useful as prompt source material and planning layer
+      - best used as import/reference material, not as standalone final product
+capability_audit:
+  original_strengths:
+    - application shell already exists
+    - frontend stack and testing tools are present
+    - Jackie-specific architecture and security documentation exist
+  current_strengths:
+    - richer prompt-source corpus
+    - canonical asset registry already started
+    - commercialization, evaluation, and MVP planning already drafted
+  overlap:
+    - product-definition intent
+    - prompt and AI-tool orientation
+    - future consolidation into one managed application
+  gaps_to_close:
+    - no direct code-level merge performed in this repository
+    - original repo internals have only been inspected through remote metadata, not full local execution
+    - rights, naming, and ship-vs-reference decisions remain open
+merge_audit:
+  keep_primary:
+    - original Jacky application runtime and UI lineage
+    - original Jackie architecture/security/behavior documentation as canonical product-intent inputs
+  merge_into_primary:
+    - current repo commercialization assessment
+    - current repo asset registry and prompt-family mapping
+    - current repo launch and evaluation planning
+  adapt_before_merge:
+    - Grok-branded prompt assets requiring rights review or rebranding
+    - prompt assets lacking runtime schema and regression datasets
+  retire_or_reference_only:
+    - duplicated archived sibling repos once canonical Jacky source is confirmed
+    - any prompt asset that fails rights review, coherence review, or five-pass validation
+provisional_decision:
+  canonical_base: 93jessycollin93-del/Jacky-Console-
+  historical_reference: 93jessycollin93-del/ocd-jacky-777
+  enrichment_source: /home/runner/work/grok-prompts/grok-prompts
+  rationale:
+    - original side has executable product surface
+    - current side has stronger prompt/reference and commercialization planning material
+    - unified system should inherit app runtime from original and validated prompt/program assets from current
+truth_filter:
+  required_for_promotion:
+    - factually working
+    - internally coherent
+    - security-safe
+    - maintainable
+    - aligned with offline SAS and bot-training goals
+    - passes five successive validation cycles
+comparison_matrix:
+  architecture:
+    original: app runtime present
+    current: planning only
+    action: keep original, merge current planning guidance
+  prompt_assets:
+    original: likely product-local prompt/config assets
+    current: primary visible prompt corpus
+    action: merge selectively after rights and regression review
+  testing:
+    original: vitest and playwright present
+    current: no runtime tests applicable
+    action: use original harness as execution base, extend with current evaluation protocol
+  UI_patterns:
+    original: active UI codebase
+    current: conceptual UI guidance only
+    action: keep original base, augment with unified SAS hub requirements
+  security_posture:
+    original: security principles doc plus Supabase surface
+    current: commercialization risk analysis
+    action: merge both into hardened security program
+blocking_items:
+  - full local checkout of the canonical original repository is not available in this workspace
+  - remote inspection showed root file listings include .env files, so secret hygiene review is mandatory before any code merge
+  - rights review still required for Grok-branded assets and third-party references
+next_actions:
+  - fetch or attach the canonical Jacky repository into the working environment before code merge work
+  - run the five-pass protocol against every merge candidate
+  - import only validated prompt/program assets into the canonical Jacky app line
+  - collapse archived sibling repos after provenance is confirmed
