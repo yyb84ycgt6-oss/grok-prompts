@@ -17,5 +17,17 @@ The following prompts are made public via this repository:
 * [`grok4p1_non_thinking_system_turn_prompt.j2`](grok4p1_non_thinking_system_turn_prompt.j2) - The system prompt for grok 4.1 non thinking with tool
 * [`grok4p1_thinking_system_turn_prompt_v2.j2`](grok4p1_thinking_system_turn_prompt_v2.j2) - The system prompt for grok 4.1 thinking no tool
 
+## Validation
+
+README markdown links are automatically checked in CI for:
+- label/target consistency (markdown link label must equal target)
+- local file-target existence
+
+You can run the same check locally:
+
+```bash
+python scripts/check_readme_links.py
+```
+
 ## License
 This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
