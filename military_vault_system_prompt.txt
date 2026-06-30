@@ -10,7 +10,7 @@
 
 At-Rest:
 - AES-256-GCM (NIST FIPS 140-2 validated)
-- ChaCha20-Poly1305 (post-quantum resistant backup)
+- ChaCha20-Poly1305 (high-performance, hardware-acceleration-independent backup cipher)
 - Quantum-resistant hybrid encryption (CRYSTALS-Kyber for future-proofing)
 
 In-Transit:
