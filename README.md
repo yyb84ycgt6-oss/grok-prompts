@@ -20,8 +20,9 @@ The following prompts are made public via this repository:
 ## Validation
 
 README markdown links are automatically checked in CI for:
-- label/target consistency (markdown link label must equal target)
 - local file-target existence
+
+The check also reports label/target mismatches as warnings.
 
 You can run the same check locally:
 

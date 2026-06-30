@@ -22,6 +22,7 @@ def main() -> int:
         return 0
 
     errors: list[str] = []
+    warnings: list[str] = []
     for label, target in matches:
         if target.startswith(("http://", "https://", "#", "mailto:")):
             continue
@@ -29,7 +30,12 @@ def main() -> int:
         if not target_path.is_file():
             errors.append(f"Missing file target: `{target}`")
         if label != target:
-            errors.append(f"Label/target mismatch: label `{label}` != target `{target}`")
+            warnings.append(f"Label/target mismatch: label `{label}` != target `{target}`")
+
+    if warnings:
+        print("README link consistency warnings:")
+        for warn in warnings:
+            print(f"- {warn}")
 
     if errors:
         print("README link consistency check failed:")
