@@ -16,6 +16,7 @@ The following prompts are made public via this repository:
 * [`grok4p1_non_thinking_no_tool_system_turn_prompt.j2`](grok4p1_non_thinking_no_tool_system_turn_prompt.j2) - The system prompt for grok 4.1 non thinking no tool
 * [`grok4p1_non_thinking_system_turn_prompt.j2`](grok4p1_non_thinking_system_turn_prompt.j2) - The system prompt for grok 4.1 non thinking with tool
 * [`grok4p1_thinking_system_turn_prompt_v2`](grok4p1_thinking_system_turn_prompt_v2.j2) - The system prompt for grok 4.1 thinking no tool
+* [`secret_box_government_requirements_prompt.j2`](secret_box_government_requirements_prompt.j2) - Prompt for safely triaging government secure-vault requirements.
 
 ## License
 This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
