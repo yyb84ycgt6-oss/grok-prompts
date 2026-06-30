@@ -26,3 +26,8 @@
 - Conserving tokens **never** justifies a wrong, unsafe, or incomplete result. Correctness and safety come first; efficiency is how you achieve them, not an excuse to skip them.
 
 **The challenge, restated:** right answer, least tokens, every time.
+
+## Coordination
+- All agents share `commercialization/agent_coordination_board.yaml`. **If you have no assigned task, claim the highest open priority lane there** (set `owner`/`status`), then proceed.
+- Keep one agent free for the user; respect the concurrency cap and the 1000-credit reserve.
+- This applies to every agent — Copilot, Gemini, Opus, Grok, and any future or idle agent. Work in parallel, don't collide, hand off by marking lanes `done`.
