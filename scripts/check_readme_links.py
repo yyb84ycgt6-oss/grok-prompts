@@ -23,12 +23,12 @@ def main() -> int:
 
     errors: list[str] = []
     for label, target in matches:
-        if "/" in target:
+        if target.startswith(("http://", "https://", "#", "mailto:")):
             continue
         target_path = repo_root / target
         if not target_path.is_file():
             errors.append(f"Missing file target: `{target}`")
-        if label != target:
+        if label != Path(target).name:
             errors.append(f"Label/target mismatch: label `{label}` != target `{target}`")
 
     if errors:
