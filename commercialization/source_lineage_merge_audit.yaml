@@ -9,6 +9,7 @@ sources:
     status: provisional_primary
     repositories:
       - repo: 93jessycollin93-del/Jacky-Console-
+        note: repository name includes a trailing hyphen in the public source
         branch: main
         state: active_public
         evidence:

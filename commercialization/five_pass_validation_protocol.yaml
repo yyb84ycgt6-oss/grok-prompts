@@ -51,7 +51,9 @@ pass_fail_rules:
     - performance remains within agreed local-server budget
     - maintainability notes and rollback path are documented
 scoring_model:
-  scale: zero_to_five
+  scale:
+    min: 0
+    max: 5
   thresholds:
     minimum_per_discipline: 4
     minimum_average: 4.2
