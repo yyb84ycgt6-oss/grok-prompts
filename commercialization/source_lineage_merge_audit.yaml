@@ -1,7 +1,7 @@
 audit_version: 1
 audit_scope: original_vs_backup_product_line
 objective:
-  - treat 93jessycollin93-del Jacky lineage as primary/original
+  - treat the Jacky lineage on 93jessycollin93-del as primary/original
   - treat /home/runner/work/grok-prompts/grok-prompts as backup_parallel_reference_material
   - merge only assets that are coherent, testable, secure, and useful
 sources:
@@ -132,7 +132,7 @@ comparison_matrix:
     current: commercialization risk analysis
     action: merge both into hardened security program
 blocking_items:
-  - full local checkout of the canonical original repository is not available in /home/runner/work/grok-prompts/grok-prompts
+  - full local checkout of the canonical original repository is not available in the current backup workspace
   - remote inspection showed environment-specific configuration artifacts, so secret hygiene review is mandatory before any code merge
   - rights review still required for Grok-branded assets and third-party references
 next_actions:

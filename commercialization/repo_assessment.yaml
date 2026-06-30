@@ -29,8 +29,8 @@ repository:
       - flat repo layout can be normalized during import into the canonical Jacky app registry
   duplication_and_drift:
     high_overlap_clusters:
-      - grok4_system_turn_prompt_v8.j2, grok4p1_thinking_system_turn_prompt_v2.j2, grok_4_safety_prompt.txt
-      - grok4p1_non_thinking_system_turn_prompt.j2, grok4p1_non_thinking_no_tool_system_turn_prompt.j2
+      - grok4_system_turn_prompt_v8.j2, grok4p1_thinking_system_turn_prompt_v2.j2, grok_4_safety_prompt.txt: overlapping safety policy and behavior instruction text
+      - grok4p1_non_thinking_system_turn_prompt.j2, grok4p1_non_thinking_no_tool_system_turn_prompt.j2: overlapping non-thinking runtime guidance with tool-mode drift
     canonicalization_candidates:
       - choose one canonical chat system prompt per model family
       - separate standalone safety prefixes from embedded safety sections

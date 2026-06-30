@@ -55,6 +55,9 @@ scoring_model:
   thresholds:
     minimum_per_discipline: 4
     minimum_average: 4.2
+    rationale:
+      - a floor of 4 per discipline blocks weak spots in critical areas
+      - a 4.2 average requires consistently strong performance rather than barely passing scores
     hard_block_disciplines:
       - security_and_privacy
       - functional_correctness

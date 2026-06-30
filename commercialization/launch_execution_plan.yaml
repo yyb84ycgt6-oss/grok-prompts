@@ -6,7 +6,7 @@ resource_rules:
     reserve_for_user: 1
     reserve_for_agent_work: 3
   spend_rules:
-    preserve_user_credit_reserve: 1000
+    preserve_user_credit_reserve: 1000_credits
     default_mode: low_cost_high_efficiency
 current_lane_status:
   lane_0_lineage_merge:
