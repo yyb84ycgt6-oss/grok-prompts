@@ -133,7 +133,7 @@ comparison_matrix:
     action: merge both into hardened security program
 blocking_items:
   - full local checkout of the canonical original repository is not available in /home/runner/work/grok-prompts/grok-prompts
-  - remote inspection showed root file listings include .env files, so secret hygiene review is mandatory before any code merge
+  - remote inspection showed environment-specific configuration artifacts, so secret hygiene review is mandatory before any code merge
   - rights review still required for Grok-branded assets and third-party references
 next_actions:
   - fetch or attach the canonical Jacky repository into the working environment before code merge work

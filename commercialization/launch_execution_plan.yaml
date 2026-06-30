@@ -70,17 +70,17 @@ priority_order:
     action: alpha and closed beta
     why: collect feedback before public or paid launch
 phase_backlog:
-  phase_0_stop_go:
+  phase_lineage_stop_go:
     next:
       - confirm Jacky-Console- as canonical active repo and ocd-jacky-777 as historical sibling
       - complete source-lineage merge audit
       - block direct productization of the backup prompt repo
-  phase_1_merge_foundation:
+  phase_merge_foundation:
     next:
       - pull canonical Jacky repo into working environment
       - map current prompt assets and planning artifacts into import candidates
       - define keep_merge_adapt_retire decisions per asset family
-  phase_0_backup_repo_stop_go:
+  phase_backup_repo_stop_go:
     done:
       - current repository assessed as source material, not an app
       - concrete MVP direction chosen: private-first prompt management app
