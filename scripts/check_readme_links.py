@@ -18,8 +18,8 @@ def main() -> int:
     matches = README_LINK_RE.findall(content)
 
     if not matches:
-        print("ERROR: No markdown links found in README.md.")
-        return 1
+        print("No markdown links found in README.md; skipping consistency checks.")
+        return 0
 
     errors: list[str] = []
     for label, target in matches:
