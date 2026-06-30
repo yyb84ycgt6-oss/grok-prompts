@@ -80,7 +80,7 @@ phase_backlog:
       - pull canonical Jacky repo into working environment
       - map current prompt assets and planning artifacts into import candidates
       - define keep_merge_adapt_retire decisions per asset family
-  phase_0_stop_go_legacy:
+  phase_0_backup_repo_stop_go:
     done:
       - current repository assessed as source material, not an app
       - concrete MVP direction chosen: private-first prompt management app
