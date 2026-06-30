@@ -1,0 +1,41 @@
+assessment_version: 1
+repository:
+  path: /home/runner/work/grok-prompts/grok-prompts
+  current_state: public prompt repository
+  license: AGPL-3.0
+  summary:
+    - The repository is a flat collection of public prompt assets, not an application.
+    - The current files are useful as reference inputs for a future product, but not as a launch-ready product surface.
+    - A separate private-first application repository is the safest commercialization path.
+  major_findings:
+    - There is no application runtime, authentication, billing, deployment, evaluation, or support layer.
+    - The assets are Grok-branded and contain third-party product/model references that require rights review before any commercial use.
+    - Multiple prompt families contain overlapping behavior and policy instructions, so canonicalization is required before productization.
+  commercialization_position:
+    safest_path: build a new branded application around a managed prompt platform
+    stop_go_gate: legal ownership, redistribution, and trademark review
+  risks:
+    high:
+      - unverified ownership or redistribution rights for prompt contents
+      - use of third-party branding or model references in a commercial product
+      - direct public launch without audit trail, rollout controls, or evaluation gates
+    medium:
+      - duplicated policy text drifting across prompt families
+      - template variables lacking a formal runtime schema
+      - no structured metadata for prompt assets
+    low:
+      - flat repo layout can be normalized during import into an app registry
+  duplication_and_drift:
+    high_overlap_clusters:
+      - grok4_system_turn_prompt_v8.j2, grok4p1_thinking_system_turn_prompt_v2.j2, grok_4_safety_prompt.txt
+      - grok4p1_non_thinking_system_turn_prompt.j2, grok4p1_non_thinking_no_tool_system_turn_prompt.j2
+    canonicalization_candidates:
+      - choose one canonical chat system prompt per model family
+      - separate standalone safety prefixes from embedded safety sections
+      - normalize repeated product-fact sections into managed metadata instead of free text
+  recommended_outputs:
+    - trusted assessment
+    - canonical asset registry
+    - concrete MVP app architecture
+    - phased launch execution plan
+    - future agent backlog

@@ -1,0 +1,198 @@
+registry_version: 1
+registry_purpose: canonical asset map for import into a future prompt management application
+default_policy:
+  ownership_status: unverified_public_asset
+  launch_disposition: reference_only_until_rights_review
+assets:
+  - asset_id: prompt.grok4.system.v8
+    file: /home/runner/work/grok-prompts/grok-prompts/grok4_system_turn_prompt_v8.j2
+    family: grok4
+    role: chat_system_prompt
+    format: jinja2
+    target_surfaces:
+      - grok.com
+      - x.com
+    target_models:
+      - Grok 4
+    template_variables:
+      - is_mobile
+      - is_subjective
+    commercialization_notes:
+      - embedded safety and product guidance
+      - requires branding and rights review
+  - asset_id: prompt.grok3.official.p1
+    file: /home/runner/work/grok-prompts/grok-prompts/grok3_official0330_p1.j2
+    family: grok3
+    role: chat_system_prompt
+    format: jinja2
+    target_surfaces:
+      - grok.com
+      - x.com
+    target_models:
+      - Grok 3
+    template_variables:
+      - disable_search
+      - enable_memory
+      - has_memory_management
+      - is_mobile
+      - is_vlm
+      - dynamic_prompt
+      - custom_personality
+      - custom_instructions
+      - time
+      - grok3mini
+    commercialization_notes:
+      - includes runtime-personality and memory-related branches
+      - treat as reference-only until ownership is verified
+  - asset_id: prompt.ask_grok.system
+    file: /home/runner/work/grok-prompts/grok-prompts/ask_grok_system_prompt.j2
+    family: feature
+    role: x_bot_prompt
+    format: jinja2
+    target_surfaces:
+      - x.com
+    target_models:
+      - Grok 4
+    template_variables: []
+    commercialization_notes:
+      - specialized response-style prompt for X
+      - useful as a feature-specific prompt pattern
+  - asset_id: prompt.grok4.safety
+    file: /home/runner/work/grok-prompts/grok-prompts/grok_4_safety_prompt.txt
+    family: safety
+    role: safety_prefix
+    format: text
+    target_surfaces:
+      - api
+    target_models:
+      - grok-4-0709
+    template_variables: []
+    commercialization_notes:
+      - standalone safety block
+      - duplicate content appears embedded elsewhere
+  - asset_id: prompt.grok4.code_rc1.safety
+    file: /home/runner/work/grok-prompts/grok-prompts/grok_4_code_rc1_safety_prompt.txt
+    family: safety
+    role: safety_prefix
+    format: text
+    target_surfaces:
+      - api
+    target_models:
+      - grok-code-fast-1
+    template_variables: []
+    commercialization_notes:
+      - shorter policy variant
+      - drift risk relative to fuller safety variants
+  - asset_id: prompt.grok4.mini.system
+    file: /home/runner/work/grok-prompts/grok-prompts/grok_4_mini_system_prompt.txt
+    family: api
+    role: system_prefix
+    format: text
+    target_surfaces:
+      - api
+    target_models:
+      - grok-4-fast
+    template_variables: []
+    commercialization_notes:
+      - compact policy-focused asset
+      - should become metadata-backed policy configuration in a product
+  - asset_id: prompt.grok4p1.nonthinking.notool
+    file: /home/runner/work/grok-prompts/grok-prompts/grok4p1_non_thinking_no_tool_system_turn_prompt.j2
+    family: grok4p1
+    role: chat_system_prompt
+    format: jinja2
+    target_surfaces:
+      - chat
+    target_models:
+      - Grok 4.1 non-thinking no-tool
+    template_variables:
+      - chart_tool_enabled
+      - is_subjective
+      - date
+      - custom_personality
+      - user_info
+    commercialization_notes:
+      - candidate variant in a future prompt registry
+      - contains runtime personality injection points
+  - asset_id: prompt.grok4p1.nonthinking.tool
+    file: /home/runner/work/grok-prompts/grok-prompts/grok4p1_non_thinking_system_turn_prompt.j2
+    family: grok4p1
+    role: chat_system_prompt
+    format: jinja2
+    target_surfaces:
+      - chat
+    target_models:
+      - Grok 4.1 non-thinking
+    template_variables:
+      - max_turns
+      - chart_tool_enabled
+      - is_subjective
+      - custom_personality
+      - user_info
+    commercialization_notes:
+      - tool-enabled sibling of the no-tool variant
+      - requires formal variable schema before production use
+  - asset_id: prompt.grok4p1.thinking.v2
+    file: /home/runner/work/grok-prompts/grok-prompts/grok4p1_thinking_system_turn_prompt_v2.j2
+    family: grok4p1
+    role: chat_system_prompt
+    format: jinja2
+    target_surfaces:
+      - chat
+    target_models:
+      - Grok 4.1 thinking
+    template_variables:
+      - chart_tool_enabled
+      - is_subjective
+      - custom_personality
+      - user_info
+    commercialization_notes:
+      - thinking-mode variant with strong overlap to grok4 system prompts
+      - should be compared and canonicalized before launch
+  - asset_id: prompt.grok.analyze_button
+    file: /home/runner/work/grok-prompts/grok-prompts/grok_analyze_button.j2
+    family: feature
+    role: explain_feature_prompt
+    format: jinja2
+    target_surfaces:
+      - x.com
+    target_models:
+      - feature runner
+    template_variables:
+      - url
+      - ga_number_of_bullet_points
+      - enable_citation
+    commercialization_notes:
+      - good seed asset for a public comparison or explanation feature
+      - needs provider abstraction and response evaluations
+  - asset_id: doc.readme
+    file: /home/runner/work/grok-prompts/grok-prompts/README.md
+    family: governance
+    role: public_catalog
+    format: markdown
+    target_surfaces:
+      - github
+    target_models: []
+    template_variables: []
+    commercialization_notes:
+      - authoritative public asset listing
+      - useful as import metadata, not as product logic
+canonical_families:
+  - family: grok4_chat
+    candidates:
+      - prompt.grok4.system.v8
+      - prompt.grok4p1.thinking.v2
+      - prompt.grok4p1.nonthinking.tool
+      - prompt.grok4p1.nonthinking.notool
+    action: choose one canonical base per runtime mode
+  - family: safety_prefixes
+    candidates:
+      - prompt.grok4.safety
+      - prompt.grok4.code_rc1.safety
+      - prompt.grok4.mini.system
+    action: convert to policy modules with explicit scope and precedence
+  - family: feature_prompts
+    candidates:
+      - prompt.ask_grok.system
+      - prompt.grok.analyze_button
+    action: keep as separate feature templates with shared metadata schema

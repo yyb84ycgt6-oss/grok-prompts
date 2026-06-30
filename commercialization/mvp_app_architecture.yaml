@@ -1,0 +1,176 @@
+architecture_version: 1
+product_direction:
+  mode: private_first_prompt_management_application
+  recommended_name_placeholder: prompt control plane
+  target_user:
+    primary: repository owner
+    secondary: invited evaluators
+  product_goal:
+    - import prompt assets into a managed registry
+    - edit, render, compare, evaluate, and release prompts safely
+    - keep commercialization work in a separate branded app instead of launching this repo directly
+recommended_stack:
+  frontend:
+    framework: Next.js
+    language: TypeScript
+    rationale: fast operator UI, diff/review workflows, simple future public surface
+  backend:
+    framework: FastAPI
+    language: Python
+    rationale: native fit for Jinja2 prompt rendering and validation
+  worker:
+    framework: Celery or RQ
+    language: Python
+    rationale: async evaluation runs, imports, and release jobs
+  database:
+    engine: PostgreSQL
+  cache_queue:
+    engine: Redis
+  object_storage:
+    engine: S3-compatible bucket
+  auth:
+    mode: single-user private login first, managed auth later
+  observability:
+    logging: structured application logs
+    metrics: run counts, eval latency, provider cost, release health
+services:
+  - name: web
+    responsibilities:
+      - asset library UI
+      - prompt editor and diff viewer
+      - run history and release dashboard
+  - name: api
+    responsibilities:
+      - prompt CRUD
+      - render validation
+      - evaluation orchestration
+      - release approvals
+      - provider execution abstraction
+  - name: worker
+    responsibilities:
+      - batch evaluations
+      - regression suites
+      - import and normalization jobs
+      - release and rollback tasks
+core_modules:
+  prompt_registry:
+    purpose: source of truth for imported prompt assets and metadata
+    must_have:
+      - immutable asset ids
+      - family classification
+      - status flags
+      - ownership and risk fields
+  prompt_renderer:
+    purpose: render Jinja2 templates with validated runtime inputs
+    must_have:
+      - schema-based variable checks
+      - forbidden-placeholder detection
+      - preview rendering
+  versioning_and_diff:
+    purpose: compare prompt revisions and maintain rollback targets
+    must_have:
+      - version numbers
+      - change notes
+      - side-by-side diff
+  evaluation_runner:
+    purpose: run test datasets against prompt versions and providers
+    must_have:
+      - dataset selection
+      - batch runs
+      - scoring capture
+      - pass_fail gates
+  provider_gateway:
+    purpose: abstract model vendors from prompt assets
+    must_have:
+      - provider configs
+      - model selection
+      - cost tracking
+      - environment-scoped credentials
+  release_manager:
+    purpose: stage, approve, publish, and roll back prompt releases
+    must_have:
+      - draft
+      - review
+      - approved
+      - released
+      - rolled_back
+  audit_log:
+    purpose: record who changed what and why
+    must_have:
+      - actor
+      - timestamp
+      - entity
+      - change summary
+data_model:
+  entities:
+    - PromptAsset
+    - PromptVersion
+    - VariableSchema
+    - PromptFamily
+    - EvaluationDataset
+    - EvaluationRun
+    - EvaluationResult
+    - ProviderConfig
+    - ReleaseRecord
+    - AuditEvent
+    - Workspace
+    - User
+  key_relationships:
+    - PromptAsset has many PromptVersion
+    - PromptAsset belongs to PromptFamily
+    - PromptVersion has one VariableSchema
+    - PromptVersion has many EvaluationRun
+    - EvaluationRun has many EvaluationResult
+    - ReleaseRecord points to one PromptVersion
+operator_flows:
+  - name: import_and_classify
+    steps:
+      - import raw prompt file
+      - assign family and role
+      - capture ownership and launch risk
+      - record variable schema
+  - name: edit_and_preview
+    steps:
+      - open draft version
+      - modify content or metadata
+      - render preview with test variables
+      - compare against prior version
+  - name: evaluate_and_release
+    steps:
+      - select evaluation dataset
+      - run batch test
+      - review failures
+      - approve release
+      - publish or roll back
+private_first_mvp_scope:
+  included:
+    - single-user workspace
+    - prompt import from this repository
+    - structured metadata editor
+    - Jinja2 render preview
+    - version diff
+    - manual evaluation runs
+    - provider credential storage via environment or secret manager
+    - release status tracking
+  excluded:
+    - public signup
+    - team billing
+    - marketplace or gallery
+    - multi-tenant org features
+    - automated public deployment integrations
+public_launch_gates:
+  - ownership and trademark review completed
+  - original branding chosen
+  - privacy policy and terms written
+  - prompt evaluation baseline established
+  - rollback path tested
+  - rate limits and abuse controls configured
+  - analytics and incident handling enabled
+build_sequence:
+  - build separate application repository
+  - create import pipeline for current prompt files
+  - ship prompt registry and variable-schema support
+  - ship render preview and version diff
+  - ship evaluation runner and release states
+  - deploy private single-user MVP
+  - validate with invited testers
