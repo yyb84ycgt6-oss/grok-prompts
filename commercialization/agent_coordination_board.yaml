@@ -1,0 +1,50 @@
+board_version: 1
+purpose: Shared coordination board so every agent (Copilot, Gemini, Opus, Grok, and any idle agent) can claim work and finish the project in parallel without collision.
+how_to_use:
+  - Before starting, read AGENTS.md (token-efficiency protocol) and this board.
+  - Claim a task by setting its `owner` to your agent name and `status` to in_progress in a small PR.
+  - Keep one agent free for the user; never exceed the concurrency cap below.
+  - Hand off by setting status to done and listing the produced artifact.
+resource_rules:
+  max_total_concurrent: 4
+  reserve_for_user: 1
+  preserve_user_credit_reserve: 1000
+  default_mode: low_cost_high_efficiency
+priority_lanes:
+  - id: P0_lineage
+    objective: Confirm canonical Jacky source vs this backup; block direct launch from backup.
+    status: open
+    owner: unassigned
+    source: launch_execution_plan.yaml#lane_0_lineage_merge
+  - id: P1_legal_ownership
+    objective: Tag every asset with ownership_status and launch_disposition; flag third-party/model references.
+    status: open
+    owner: unassigned
+    suggested_agent: legal_ownership_mapper
+  - id: P2_app_repo
+    objective: Produce concrete separate app repo structure and module boundaries (web, api, worker, db).
+    status: open
+    owner: unassigned
+    suggested_agent: app_repo_architect
+  - id: P3_prompt_registry
+    objective: Convert flat prompt files into a registry with variable schemas and release states.
+    status: open
+    owner: unassigned
+  - id: P4_editor_diff_versioning
+    objective: Render preview, variable validation, diff, version history, draft/approved states.
+    status: open
+    owner: unassigned
+  - id: P5_eval_release_gates
+    objective: Build eval datasets, regression gates, and release scoring for prompt quality.
+    status: open
+    owner: unassigned
+    suggested_agent: eval_system_designer
+  - id: P6_private_deploy
+    objective: Deploy single-user private environment; verify secret management and cost tracking.
+    status: open
+    owner: unassigned
+    blocked_by: [P2_app_repo, P3_prompt_registry]
+standing_directive:
+  challenge: right answer, least tokens, every time
+  correctness_first: Conserving tokens never justifies a wrong, unsafe, or incomplete result.
+  idle_agents: If you have no assigned task, claim the highest open priority lane here and proceed.
