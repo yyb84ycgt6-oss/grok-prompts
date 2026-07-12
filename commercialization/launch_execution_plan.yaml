@@ -1,0 +1,133 @@
+plan_version: 1
+plan_type: concrete_mvp_to_public_launch
+resource_rules:
+  agent_budget:
+    max_total_concurrent: 4
+    reserve_for_user: 1
+    reserve_for_agent_work: 3
+  spend_rules:
+    preserve_user_credit_reserve:
+      amount: 1000
+      unit: credits
+    default_mode: low_cost_high_efficiency
+current_lane_status:
+  lane_0_lineage_merge:
+    status: in_progress
+    objective: determine canonical Jacky source and merge validated backup assets into it
+    immediate_tasks:
+      - confirm active canonical Jacky repository versus archived siblings
+      - map original runtime capabilities against current prompt/reference assets
+      - block direct launch from backup repository
+  lane_1_legal_ownership:
+    status: in_progress
+    objective: determine what can be shipped, renamed, sold, or kept reference-only
+    immediate_tasks:
+      - tag every asset with ownership_status and launch_disposition
+      - identify third-party names and model references requiring review
+      - decide whether commercialization requires a full rebrand
+  lane_2_product_definition:
+    status: in_progress
+    objective: define the private-first MVP application
+    immediate_tasks:
+      - confirm primary user is solo operator first
+      - lock V1 scope to import, edit, compare, evaluate, and release prompts
+      - reject public launch features until the private MVP works end to end
+  lane_3_prompt_system:
+    status: in_progress
+    objective: convert flat prompt files into a manageable prompt registry
+    immediate_tasks:
+      - import prompt assets into canonical families
+      - add variable schemas and release states
+      - create evaluation datasets and regression gates
+  lane_4_launch_ops:
+    status: blocked
+    objective: prepare public launch operations
+    blocking_reasons:
+      - no app runtime yet
+      - ownership and branding review not complete
+      - no billing, auth, support, or incident tooling in place
+priority_order:
+  - priority: 0
+    action: lineage and canonical-source confirmation
+    why: no merge or launch should proceed until original-vs-backup roles are fixed
+  - priority: 1
+    action: legal and commercialization review
+    why: do not build a public product surface around unreviewed assets
+  - priority: 2
+    action: separate app repository creation
+    why: app concerns should not be layered directly into the prompt source repository
+  - priority: 3
+    action: prompt registry and import pipeline
+    why: every later workflow depends on canonical asset records
+  - priority: 4
+    action: preview, diff, and versioning
+    why: safe prompt editing requires controlled change management
+  - priority: 5
+    action: evaluation runner and release gates
+    why: prompt changes need measurable quality checks before release
+  - priority: 6
+    action: private deployment
+    why: validate the product alone before inviting any external users
+  - priority: 7
+    action: alpha and closed beta
+    why: collect feedback before public or paid launch
+phase_backlog:
+  phase_lineage_stop_go:
+    next:
+      - confirm Jacky-Console- as canonical active repo and ocd-jacky-777 as historical sibling
+      - complete source-lineage merge audit
+      - block direct productization of the backup prompt repo
+  phase_merge_foundation:
+    next:
+      - pull canonical Jacky repo into working environment
+      - map current prompt assets and planning artifacts into import candidates
+      - define keep_merge_adapt_retire decisions per asset family
+  phase_backup_repo_stop_go:
+    done:
+      - current repository assessed as source material, not an app
+      - concrete MVP direction chosen: private-first prompt management app
+    next:
+      - verify rights and redistribution position
+      - define ship_assets vs reference_assets
+      - choose original product brand
+  phase_1_mvp_foundation:
+    next:
+      - create separate app repo
+      - scaffold web, api, worker, and database
+      - implement asset import from this repository
+      - implement prompt registry and metadata model
+  phase_2_editor_and_validation:
+    next:
+      - implement render preview
+      - implement variable schema validation
+      - implement diff and version history
+      - implement draft and approved release states
+  phase_3_eval_and_private_release:
+    next:
+      - build evaluation datasets
+      - run regression tests on canonical prompt families
+      - deploy private single-user environment
+      - verify secret management and cost tracking
+  phase_4_public_readiness:
+    next:
+      - add auth hardening
+      - add abuse controls and rate limits
+      - add terms, privacy, and support workflows
+      - prepare limited alpha onboarding
+launch_gates:
+  must_be_true_before_public:
+    - original app branding exists
+    - rights review completed for ship_assets
+    - provider secrets isolated by environment
+    - evaluation baseline defined and passing
+    - rollback and incident response paths tested
+    - analytics and support contact available
+future_agent_backlog:
+  reserved_policy: leave 1 agent free for the user
+  my_best_3_agent_split:
+    - name: legal_ownership_mapper
+      objective: classify assets into ship, adapt, or reference-only buckets
+    - name: app_repo_architect
+      objective: produce concrete app repo structure and module boundaries
+    - name: eval_system_designer
+      objective: define datasets, scoring, and release gates for prompt quality

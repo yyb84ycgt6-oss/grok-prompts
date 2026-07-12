@@ -1,0 +1,94 @@
+protocol_version: 1
+protocol_name: five_pass_merge_validation
+purpose:
+  - enforce five successive clean validation cycles for every kept or merged condenser, prompt family, or supporting module
+  - prevent promotion of weak, redundant, unsafe, or incoherent assets into the unified SAS hub
+validation_disciplines:
+  - functional_correctness
+  - ai_compatibility
+  - offline_server_behavior
+  - security_and_privacy
+  - performance_and_resource_efficiency
+  - edge_case_resilience
+  - ux_clarity
+  - maintainability
+  - interoperability
+  - regression_stability
+cycle_order:
+  - cycle: 1
+    focus:
+      - baseline feature correctness
+      - expected input_output behavior
+  - cycle: 2
+    focus:
+      - AI compatibility
+      - prompt and workflow coherence
+  - cycle: 3
+    focus:
+      - adversarial cases
+      - malformed inputs
+      - boundary conditions
+  - cycle: 4
+    focus:
+      - offline execution
+      - server resource pressure
+      - dependency failure handling
+  - cycle: 5
+    focus:
+      - repeated regression stability
+      - cross-tool interoperability
+      - release readiness
+pass_fail_rules:
+  fail_fast_conditions:
+    - secrets exposure
+    - unsafe default behavior
+    - unrecoverable data corruption
+    - broken offline operation for an offline-required module
+    - regression against canonical baseline behavior
+  promotion_gate:
+    - all five cycles pass in succession
+    - no high-severity security findings remain
+    - performance remains within agreed local-server budget
+    - maintainability notes and rollback path are documented
+scoring_model:
+  scale:
+    min: 0
+    max: 5
+  thresholds:
+    minimum_per_discipline: 4
+    minimum_average: 4.2
+    rationale:
+      - a floor of 4 per discipline blocks weak spots in critical areas
+      - a 4.2 average requires consistently strong performance rather than barely passing scores
+    hard_block_disciplines:
+      - security_and_privacy
+      - functional_correctness
+      - regression_stability
+asset_decisions_after_testing:
+  keep_primary:
+    criteria:
+      - strongest validated implementation
+      - best fit for canonical Jacky runtime
+  merge:
+    criteria:
+      - complementary value without conceptual conflict
+      - integration cost justified by measurable gain
+  adapt:
+    criteria:
+      - valuable but requires schema, rebrand, hardening, or UI adjustment
+  retire:
+    criteria:
+      - weaker duplicate
+      - repeated validation failure
+      - maintenance burden exceeds value
+  reference_only:
+    criteria:
+      - rights uncertainty
+      - useful idea but not ship-safe
+execution_notes:
+  original_runtime_bias:
+    - prefer executing validations inside the canonical Jacky application harness whenever possible
+  backup_repo_bias:
+    - use this repository mainly as prompt/reference input, planning input, and import candidate source
+  evidence_requirements:
+    - record test artifacts, failures, fixes, and final merge decision for every candidate

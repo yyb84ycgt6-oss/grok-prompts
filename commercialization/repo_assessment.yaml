@@ -1,0 +1,45 @@
+assessment_version: 1
+repository:
+  path: /home/runner/work/grok-prompts/grok-prompts
+  current_state: backup_parallel_prompt_repository
+  license: AGPL-3.0
+  summary:
+    - The repository is a flat collection of public prompt assets and planning artifacts, not an application runtime.
+    - The current repository now serves as backup/parallel source material relative to the original Jacky application lineage on 93jessycollin93-del.
+    - The current files are useful as reference inputs for a future product, but not as a launch-ready product surface.
+    - The safest path is to merge validated current assets into the canonical Jacky application line instead of launching this repository directly.
+  major_findings:
+    - There is no application runtime, authentication, billing, deployment, evaluation, or support layer in this repository itself.
+    - Accessible original-lineage evidence points to an existing Vite/React Jacky application with tests and Jackie-specific architecture/security documents.
+    - The assets are Grok-branded and contain third-party product/model references that require rights review before any commercial use.
+    - Multiple prompt families contain overlapping behavior and policy instructions, so canonicalization is required before productization.
+  commercialization_position:
+    safest_path: use the original Jacky application as canonical base and import only validated assets from this backup repository
+    stop_go_gate: canonical-source confirmation plus legal ownership, redistribution, and trademark review
+  risks:
+    high:
+      - unverified ownership or redistribution rights for prompt contents
+      - use of third-party branding or model references in a commercial product
+      - direct public launch without audit trail, rollout controls, or evaluation gates
+    medium:
+      - duplicated policy text drifting across prompt families
+      - template variables lacking a formal runtime schema
+      - no structured metadata for prompt assets
+    low:
+      - flat repo layout can be normalized during import into the canonical Jacky app registry
+  duplication_and_drift:
+    high_overlap_clusters:
+      - grok4_system_turn_prompt_v8.j2, grok4p1_thinking_system_turn_prompt_v2.j2, grok_4_safety_prompt.txt: overlapping safety policy and behavior instruction text
+      - grok4p1_non_thinking_system_turn_prompt.j2, grok4p1_non_thinking_no_tool_system_turn_prompt.j2: overlapping non-thinking runtime guidance with tool-mode drift
+    canonicalization_candidates:
+      - choose one canonical chat system prompt per model family
+      - separate standalone safety prefixes from embedded safety sections
+      - normalize repeated product-fact sections into managed metadata instead of free text
+  recommended_outputs:
+    - trusted assessment
+    - canonical asset registry
+    - concrete MVP app architecture
+    - phased launch execution plan
+    - future agent backlog
+    - source-lineage merge audit
+    - five-pass validation protocol
